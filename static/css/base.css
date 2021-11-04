@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html {
+    height: 100vh;
+}
+
+body {
+    font-family: montserrat;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* ------------------------------------------------------------------------------------- Typewriter effect */
+.wrapper-top,
+.wrapper-bottom {
+    background-color: #F0DB4F;
+    height: 20vh;
+    /*This part is important for centering*/
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper-top {
+    align-items: end;
+}
+
+.typing-main,
+.typing-sub {
+    /*width: handled by typingDemoAnimation.js script;*/
+    /*animation: handled by typingDemoAnimation.js script; */
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: monospace;
+    font-size: 3em;
+}
+
+@media screen and (max-width: 50em) {
+    .wrapper-top,
+    .wrapper-bottom {
+        height: 15vh;
+    }
+    .typing-main,
+    .typing-sub {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 30em) {
+    .wrapper-top,
+    wrapper-bottom {
+        height: 10vh;
+    }
+    .typing-main,
+    .typing-sub {
+        font-size: 1em;
+    }
+}
+/* ------------------------------------------------------------------------------------- Typewriter effect */
+
+.logo-font {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.nav-row {
+    height: 52px;
+    position: relative;
+    background-color: #F0DB4F;
+    display: none;
+}
+
+@media screen and (max-width: 375px) {
+    .nav-item .nav-link {
+        padding: 0;
+    }
+}
+
+.nav-container {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 0;
+}
+
+.nav-link,
+.nav-link:focus {
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.nav-pills {
+    background-color: #F0DB4F;
+}
+
+.accordion-row {
+    border-bottom: 1px solid rgba(33,37,41,0.1);
+}
+
+.accordion-nav {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#accordion-nav {
+    display: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+#accordion-button-1:not(.collapsed) {
+    color: white;
+    background-color: red;
+}
+
+.basics-acc {
+    background-color: rgb(237, 70, 47, 0.8);
+}
+
+.red {
+    color: red;
+}
+
+#accordion-button-2:not(.collapsed) {
+    color: white;
+    background-color: orange;
+}
+
+.orange-acc {
+    background-color: rgb(245, 164, 49, 0.8);
+}
+
+.orange {
+    color: orange;
+}
+
+#accordion-button-3:not(.collapsed) {
+    color: black;
+    background-color: #F0DB4F;
+}
+
+.yellow-acc {
+    background-color: rgb(240, 218, 78, 0.8);
+}
+
+.yellow {
+    color: #F0DB4F;
+}
+
+#accordion-button-3:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+#accordion-button-4:not(.collapsed) {
+    color: white;
+    background-color: rgb(61, 135, 84);
+}
+
+.green-acc {
+    background-color: rgb(61, 135, 84, 0.8);
+}
+
+.green {
+    color: rgb(61, 135, 84);
+}
+
+#accordion-button-5:not(.collapsed) {
+    color: white;
+    background-color: blue;
+}
+
+.blue-acc {
+    background-color: rgb(34, 73, 251, 0.8);
+}
+
+.blue {
+    color: blue;
+}
+
+#accordion-button-6:not(.collapsed) {
+    color: white;
+    background-color: indigo;
+}
+
+.indigo-acc {
+    background-color: rgb(76, 39, 129, 0.8);
+}
+
+.indigo {
+    color: indigo;
+}
+
+#accordion-button-7:not(.collapsed) {
+    color: black;
+    background-color: violet;
+}
+
+.violet-acc {
+    background-color: rgb(236, 130, 237, 0.8);
+}
+
+.violet {
+    color: violet;
+}
+
+#accordion-button-7:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color: transparent;
+    outline: 0;
+    box-shadow: none;
+}
+
+/* ------------------------------- bootstrap toasts */
+
+/* .message_container {
+    position: fixed;
+    top: 0;
+    /*right: 50%;
+    z-index: 99999999999;
+}
+
+.toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+} */
+
+.btn-close {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>");
+}
+
+.container-body {
+    flex-direction: column;
+}
+
+.main-article {
+    min-height: 50vh;
+}
+
+#yourjsconsole {
+    height: 300px;
+}
+
+/* --------------------------------------------------------------------------------------- Cards */
+
+.card {
+    border-left-width: 0px;
+    /*border-bottom-width: 0px;*/
+    border-right-width: 0px;
+    border-top-width: 0px;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)!important;
+    transition: all 0.2s ease-in-out!important;
+}
+
+.card:hover {
+  transform: scale(1.05)!important;
+}
+
+.card-footer {
+    padding: 0;
+    border-left-width: 0px;
+    /*border-bottom-width: 0px;*/
+    border-right-width: 0px;
+    border-top-width: 0px;
+}
+
+.card-button {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-left-width: 0px;
+    /*border-bottom-width: 0px;*/
+    border-right-width: 0px;
+    border-top-width: 0px;
+}
+
+#tinymce-editor div > * {
+    max-width: 100%!important;
+}
+/* ------------------------------------------------------------------------------------ TinyMCE */
+#tinymce-editor p code {
+    font-family: monospace;
+    color: black
+}
+
+/* ------------------------------------------------------------------------------------- Footer */
+
+.footer {
+    color: white;
+    flex-grow: 1;
+    bottom: 0;
+    min-height: 10vh;
+}
+/* ------------------------------------------------------------------------------------- Footer */
+

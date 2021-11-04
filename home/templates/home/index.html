@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page-header %}
+{% endblock %}
+
+{% block content %}
+<div class="container container-body mt-4 mb-4">
+    <div class="row">
+        <div class="col-12 col-lg-9">
+            <article class="row main-article">
+                <h3>Welcome!</h3>
+                <p class="mb-0">This is JavaScripting. It's a blog style site where I will be writing about JavaScript.
+                </p>
+                <p class="mb-0">JavaScript is one of those funny things: you either take to it, or you don't.</p>
+                <p>Yeah, it's a little like Marmite!</p>
+                <p class="m-0">Here, I'll be detailing my struggles with this language, and also my joys when I "get
+                    it".</p>
+                <p>I'll be talking about the semantics, the different data types, how to code in JavaScript, and more.
+                </p>
+                <p class="mb-0">The site will be split up into sections.</p>
+                <p class="mb-0">So, for example, there will be a section about Strings. Another about Arrays.</p>
+                <p>And so on...</p>
+                <p>With each "article", I'll add a code snippet, taken from my GitHub repository.</p>
+                <p>And there will also be a playground or a console playground where you can play along.</p>
+                <h4 id="codepen-playground">This is a playground showing the page load banner effect.</h4>
+                <p>It's editable: change the value of each <code>&ltinput&gt</code> element and press the Rerun button.</p>
+
+                {% include 'includes/codepen.html' %}
+
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                <h4 class="mt-3" id="console-playground">This is a console playground.</h4>
+                <p>It's editable, too!</p>
+                <iframe class="mb-3" src="{{ script }}" id="yourjsconsole" title="yourjsconsole">
+                </iframe>
+                <h5 class="mt-3">Join me for the ride!</h5>
+            </article>
+        </div>
+        <div class="col-12 col-lg-3">
+            <section class="article-nav-cards">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-1">
+                    {% include 'basics/includes/basic-nav.html' %}
+                </div>
+            </section>
+            <p id="scroll-notice">Scroll for more articles</p>
+        </div>
+    </div>
+
+</div>
+{% endblock%}

@@ -1,0 +1,44 @@
+<script>
+    /*let typingMain = document.querySelector(".typing-main").innerText;
+    let typingSub = document.querySelector(".typing-sub").innerText;
+    let typingMainLength = typingMain.length;
+    let typingSubLength = typingSub.length;
+    let typingMainWidth = `${typingMainLength}ch`;
+    let typingSubWidth = `${typingSubLength}ch`;
+    let delay = typingMainLength * 100;
+    let durationMain = `${typingMainLength * 100}ms`;
+    let durationSub = `${typingSubLength * 100}ms`;
+    $('.typing-main').css('width', typingMainWidth);
+    $('.typing-sub').css('width', typingSubWidth);
+    $('.wrapper-top').css('color', 'black');
+    $('.typing-main').css('animation', `typing ${durationMain} steps(${typingMainLength})`);
+    setTimeout(function () { 
+        $('.wrapper-bottom').css('color', 'black')
+    }, delay + 50);
+    $('.typing-sub').css('animation', `typing ${durationSub} steps(${typingSubLength})`);
+    $('.typing-sub').css('animation-delay', durationMain);*/$
+    let i = 0;
+    let fullMainNameTxt =  document.getElementById('typing-main-name'); // 'JavaScripting : The Home Page.'
+    let txt = fullMainNameTxt.value;
+    let j = 0;
+    let fullSubNameTxt = document.getElementById('typing-sub-name'); // 'Home.'
+    let txt2 = fullSubNameTxt.value;
+    let speed = 100;
+    $(document).ready(function() {
+        function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("typing-main").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            };
+            setTimeout(function () {
+                if (j < txt2.length) {
+                    var x= document.getElementById("typing-sub").innerHTML += txt2.charAt(j);
+                    j++;
+                    setTimeout(typeWriter, speed);
+                }
+            }, (txt.length*speed));
+        }
+        typeWriter();
+    });
+</script>

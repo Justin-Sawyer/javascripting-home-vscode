@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page-header %}
+{% endblock %}
+
+{% block content %}
+<div class="container container-body mt-4 mb-4">
+    <div class="row">
+        <div class="col-12 col-lg-9">
+            <article class="row main-article">
+                <h3>{{ article.name }}</h3>
+                <p><em>{{ article.summary }}</em></p>
+                <div id="tinymce-editor">{{ article.description|safe }}</div>
+                {% if article.script_title %}
+                    <p>{{ article.script_title_1 }}</p>
+                {% endif %}
+                {% if article.script_1 %}
+                    <iframe class="mb-3" src="{{ article.script_1 }}" id="yourjsconsole" title="yourjsconsole"></iframe>
+                {% endif %}
+                {% if article.codepen_title_1 %}
+                    <p>{{ article.codepen_title_1 }}</p>
+                {% endif %}
+                {% if article.codepen_data_slug_hash_1 %}
+                    <p>{{ article.codepen_data_slug_hash_1 }}</p>
+                {% endif %}
+                <p>Article posted: {{ article.date_added }}</p>
+            </article>
+            <div>
+                {% if prev_article %}
+                <a role="button" class="btn btn-success float-start" href="/basics/{{prev_article}}"><i class="fas fa-chevron-circle-left"></i>
+                    Previous Article</a>
+                {% endif %}
+                {% if next_article %}
+                <a role="button" class="btn btn-success float-end" href="/basics/{{next_article}}">Next Article <i
+                        class="fas fa-chevron-circle-right"></i></a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-12 col-lg-3">
+            <section class="article-nav-cards">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-1">
+                    {% include 'basics/includes/basic-nav.html' %}
+                </div>
+            </section>
+            <p id="scroll-notice">Scroll for more articles</p>
+        </div>
+    </div>
+</div>
+{% endblock%}

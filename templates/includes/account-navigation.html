@@ -1,0 +1,24 @@
+<div class="container-fluid nav-container">
+    <ul class="nav nav-pills nav-fill">
+        {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'add_article' %}">Add An Article</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+            <a href="" class="nav-link">My Profile</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a href="{% url 'account_signup' %}" class="nav-link">Register</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'account_login' %}" class="nav-link">Login</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>

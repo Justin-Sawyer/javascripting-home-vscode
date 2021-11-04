@@ -1,0 +1,14 @@
+<script>
+    let leftHeight = $('.main-article').height();
+    let rightHeight = $('.article-nav-cards').height();
+
+    let leftHeightPx = `${leftHeight - 56}px`;
+    $('.article-nav-cards').css('max-height', leftHeightPx).css('overflow', 'scroll').css('overflow-x', 'hidden').css('padding', '0 16px');
+    $('#scroll-notice').css('padding', '16px 0 0 16px');
+    
+    // Hide notice when not needed
+    if (leftHeight > rightHeight) {
+        $('#scroll-notice').css('display', 'none');
+        $('.article-nav-cards').css('overflow', 'hidden');
+    }
+</script>
