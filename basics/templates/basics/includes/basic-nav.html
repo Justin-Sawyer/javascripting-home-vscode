@@ -1,3 +1,22 @@
+<div class="col mb-3 mt-2">
+    <div class="card h-100 border-success">
+        <div class="card-body reference">
+            <h5 class="card-title text-danger">Reference</h5>
+            <p class="card-text">All the basics about JavaScript.</p>
+        </div>
+        <div class="card-footer bg-success">
+            {% if this_page %}
+            <a type="button" class="btn btn-info w-100 card-button" href="{% url 'basics' %}">
+                You are here
+            </a>
+            {% else %}
+            <a type="button" class="btn btn-success w-100 card-button" href="{% url 'basics' %}">
+                Reference
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% for article in articles %}
     <div class="col mb-3 mt-2">
         <div class="card h-100 border-success">

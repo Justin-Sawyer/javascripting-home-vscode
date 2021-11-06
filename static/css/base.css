@@ -284,6 +284,10 @@ body {
     padding-bottom: 0;
 }
 
+.reference {
+    padding-bottom: 16px;
+}
+
 .card-pre-footer {
     padding: 0 16px 16px 16px;
 }
