@@ -24,6 +24,8 @@ class Article(models.Model):
     description = tinymce_models.HTMLField()
     script_title_1 = models.CharField(max_length=254, null=True, blank=True)
     script_1 = models.URLField(max_length=2000, null=True, blank=True)
+    gist_title_1 = models.CharField(max_length=254, null=True, blank=True)
+    gist_1 = models.CharField(max_length=2000, null=True, blank=True)
     codepen_title_1 = models.CharField(max_length=254, null=True, blank=True)
     codepen_data_slug_hash_1 = models.CharField(max_length=254, null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)

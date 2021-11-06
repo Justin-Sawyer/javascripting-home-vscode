@@ -250,8 +250,16 @@ body {
     min-height: 50vh;
 }
 
+.summary,
+.script-title,
+.gist-title,
+.codepen-title {
+    font-weight: 500;
+}
+
 #yourjsconsole {
     height: 300px;
+    width: 100%;
 }
 
 /* --------------------------------------------------------------------------------------- Cards */
@@ -272,6 +280,14 @@ body {
   transform: scale(1.05)!important;
 }
 
+.card-body {
+    padding-bottom: 0;
+}
+
+.card-pre-footer {
+    padding: 0 16px 16px 16px;
+}
+
 .card-footer {
     padding: 0;
     border-left-width: 0px;
@@ -289,13 +305,67 @@ body {
     border-top-width: 0px;
 }
 
+/* --------------------------------------------------------------------------------- Categories */
+
+#div_id_category > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    /*justify-content: space-evenly;*/
+}
+
+.form-check {
+    padding-right: 24px;
+}
+
+/* ------------------------------------------------------------------------------------ TinyMCE */
+
 #tinymce-editor div > * {
     max-width: 100%!important;
 }
-/* ------------------------------------------------------------------------------------ TinyMCE */
+
 #tinymce-editor p code {
     font-family: monospace;
-    color: black
+    color: #d63384!important;
+    font-family: var(--bs-font-monospace);
+    margin-bottom: 0;
+}
+
+#tinymce-editor blockquote * {
+    font-family: monospace;
+}
+
+/* ------------------------------------------------------------------------------------ Popover */
+
+.popover-body {
+    font-size: .875em;
+    color: #d63384;
+    word-wrap: break-word;
+    font-family: var(--bs-font-monospace);
+}
+
+/* -------------------------------------------------------------- Cards (not in main navigation */
+
+@media screen and (max-width: 991px) {
+    #scroll-notice {
+        display: none;
+    }
+    
+    .article-nav-cards {
+        overflow: hidden;
+    }
+    
+    .article-nav-cards-div {
+        padding: 0;
+    }
+
+    .main-article-div {
+        padding: 0 16px;
+    }
+}
+
+.add-edit-article-article-nav-cards {
+    padding: 16px 0;
 }
 
 /* ------------------------------------------------------------------------------------- Footer */

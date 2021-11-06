@@ -1,0 +1,9 @@
+<script>
+    $('.toast').show();
+    setTimeout(function () {
+        $('.toast').hide("slow");
+    }, 10000);
+    $(".toastCloseBtn").on('click', function () {
+        $(this).parent().parent('div').hide();
+    });
+</script>

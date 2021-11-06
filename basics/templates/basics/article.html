@@ -7,38 +7,64 @@
 {% block content %}
 <div class="container container-body mt-4 mb-4">
     <div class="row">
-        <div class="col-12 col-lg-9">
+        <div class="col-12 col-lg-9 main-article-div">
             <article class="row main-article">
-                <h3>{{ article.name }}</h3>
-                <p><em>{{ article.summary }}</em></p>
+                <h3 class="main-title">{{ article.name }}</h3>
+                {% if request.user.is_superuser %}
+                <small>
+                    <a class="small text-info" href="{% url 'edit_article' article.id %}">Edit</a> |
+                    <a class="small text-danger" href="{% url 'delete_article' article.id %}">Delete</a>
+                </small>
+                {% endif %}
+                <p class="summary"><em>{{ article.summary }}</em></p>
                 <div id="tinymce-editor">{{ article.description|safe }}</div>
-                {% if article.script_title %}
-                    <p>{{ article.script_title_1 }}</p>
+                {% if article.script_title_1 %}
+                    <p class="script-title"><em>{{ article.script_title_1 }}</em></p>
                 {% endif %}
                 {% if article.script_1 %}
                     <iframe class="mb-3" src="{{ article.script_1 }}" id="yourjsconsole" title="yourjsconsole"></iframe>
                 {% endif %}
+                {% if article.gist_title_1 %}
+                    <p class="gist-title"><em>{{ article.gist_title_1 }}</em></p>
+                {% endif %}
+                {% if article.gist_1 %}
+                <div id="gist-script" style="display: none;">
+                    <script src="https://gist.github.com/Justin-Sawyer/{{article.gist_1 }}.js"></script>
+                </div>
+                {% endif %}
                 {% if article.codepen_title_1 %}
-                    <p>{{ article.codepen_title_1 }}</p>
+                    <p class="codepen-title"><em>{{ article.codepen_title_1 }}</em></p>
                 {% endif %}
                 {% if article.codepen_data_slug_hash_1 %}
-                    <p>{{ article.codepen_data_slug_hash_1 }}</p>
+                    <iframe height="300" style="width: 100%;" scrolling="no" title="Typewriter effect"
+                        src="https://codepen.io/JustinSawyer/embed/{{ article.codepen_data_slug_hash_1 }}?default-tab=html%2Cresult&editable=true" frameborder="no"
+                        loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/JustinSawyer/pen/{{ article.codepen_data_slug_hash_1 }}">
+                            Typewriter effect</a> by Justin Sawyer (<a href="https://codepen.io/JustinSawyer">@JustinSawyer</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                    </iframe>
                 {% endif %}
                 <p>Article posted: {{ article.date_added }}</p>
+                <div id="js">
+
+                </div>
             </article>
-            <div>
+            <div class="next-previous-article-buttons">
                 {% if prev_article %}
-                <a role="button" class="btn btn-success float-start" href="/basics/{{prev_article}}"><i class="fas fa-chevron-circle-left"></i>
-                    Previous Article</a>
+                <a role="button" class="btn btn-success float-start mb-3" href="/basics/{{prev_article}}">
+                    <i class="fas fa-chevron-circle-left"></i> Previous Article
+                </a>
                 {% endif %}
                 {% if next_article %}
-                <a role="button" class="btn btn-success float-end" href="/basics/{{next_article}}">Next Article <i
-                        class="fas fa-chevron-circle-right"></i></a>
+                <a role="button" class="btn btn-success float-end mb-3" href="/basics/{{next_article}}">
+                    Next Article <i class="fas fa-chevron-circle-right"></i>
+                </a>
                 {% endif %}
             </div>
         </div>
-        <div class="col-12 col-lg-3">
+        <div class="col-12 col-lg-3 article-nav-cards-div">
             <section class="article-nav-cards">
+                <h3>More Articles</h3>
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-1">
                     {% include 'basics/includes/basic-nav.html' %}
                 </div>
@@ -48,3 +74,9 @@
     </div>
 </div>
 {% endblock%}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {% include 'basics/includes/printToPage.html' %}
+    {% include 'basics/includes/gist.html' %}
+{% endblock %}

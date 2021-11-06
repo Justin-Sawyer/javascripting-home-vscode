@@ -11,15 +11,13 @@ from .forms import ArticleForm
 def all_basics(request):
     """ A view to return the basic-cat page """
     articles = Article.objects.all()
-    article = get_object_or_404(Article, pk=1)
-    filteredArticle = Article.objects.get(pk=1)
 
     context = {
-        'article': article,
         'articles': articles,
         'title': 'JavaScripting : The Basics.',
-        'pagename': article.name,
-        'filteredArticle': filteredArticle,
+        'section': 'Basics',
+        'pagename': 'Reference',
+        'this_page': True
     }
     return render(request, 'basics/articles.html', context)
 
@@ -37,16 +35,15 @@ def article(request, article_id):
     if filteredArticle != Article.objects.last():
         next_article = Article.get_next_by_date_added(filteredArticle)
         next_article = next_article.id
-        print(next_article)
     if filteredArticle != Article.objects.first():
         prev_article = Article.get_previous_by_date_added(filteredArticle)
         prev_article = prev_article.id
-        print(prev_article)
     
     context = {
         'article': article,
         'articles': articles,
         'title': 'JavaScripting : The Basics.',
+        'section': 'Basics',
         'pagename': article.name,
         'filteredArticle': filteredArticle,
         'prev_article': prev_article,
@@ -77,6 +74,7 @@ def add_article(request):
         # 'article': article,
         'articles': articles,
         'title': 'JavaScripting : The Basics.',
+        'section': 'Basics',
         'pagename': 'Add an Article',
         # 'filteredArticle': filteredArticle,
     }
@@ -107,6 +105,7 @@ def edit_article(request, article_id):
     context = {
         'articles': articles,
         'title': 'JavaScripting : The Basics.',
+        'section': 'Basics',
         'pagename': f'Editing "{article.name}"',
         'form': form,
         'article': article,

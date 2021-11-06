@@ -41,7 +41,7 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title id="title">JavaScripting | {% block extra_title %}{% if section %}{{ section }}: {% endif %} {{ pagename }}{%endblock %}</title>
+    <title id="title">JavaScripting | {% block extra_title %}{% if section %}{{ section }} | {% endif %} {{ pagename }}{%endblock %}</title>
 </head>
 
 <body>
@@ -142,30 +142,12 @@
     {% endblock %}
 
     {% block postloadjs %}
-        {% include 'includes/typewriter_js.html' %}
-        {% include 'includes/scrolling_articles_js.html' %}
-        <script>
-            $('.toast').show();
-            setTimeout(function () {
-                $('.toast').hide("slow");
-            }, 10000);
-            $(".toastCloseBtn").on('click', function(){
-                $(this).parent().parent('div').hide();
-            });
-        </script>
-        <script>
-            $(document).ready(function () {
-                $('#dropdownMenuLink').on('click', function () {
-                    $('.nav-row').toggle();
-                })
-                $('#accordion-nav-show-hide').on('click', function () {
-                    $('#accordion-nav').toggle();
-                })
-            });
-        </script>
-        <script>
-            $("#copyright").text(new Date().getFullYear());
-        </script>
+        {% include 'includes/js/typewriter_js.html' %}
+        {% include 'includes/js/scrolling_articles_js.html' %}
+        {% include 'includes/js/toasts_js.html' %}
+        {% include 'includes/js/navigation_js.html' %}
+        {% include 'includes/js/popovers_js.html' %}
+        {% include 'includes/js/copyright_js.html' %}
     {% endblock %}
 </body>
 

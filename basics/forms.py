@@ -28,6 +28,8 @@ class ArticleForm(forms.ModelForm):
             'description': 'Description',
             'script_title_1': 'Script Title',
             'script_1': 'Script URL',
+            'gist_title_1': 'Gist Title',
+            'gist_1': 'Script URL string',
             'codepen_title_1': 'CodePen Title',
             'codepen_data_slug_hash_1': 'CodePen Data Slug Hash',
         }

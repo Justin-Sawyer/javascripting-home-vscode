@@ -1,0 +1,36 @@
+<script>
+    document.addEventListener('click', function (event) {
+        if (event.target.matches('#printToPage')) {
+            let userName = prompt("What is your name?");
+
+            function printToPage(userName) {
+                if (userName && userName.length) {
+                    result = document.getElementById('result')
+                    if (result.classList.contains('text-danger')) {
+                        result.classList.remove("text-danger");
+                    }
+                    result.classList.add("text-success");
+                    result.innerText = `Your name is: ${userName}`;
+                    return;
+                } else {
+                    if (result.classList.contains('text-success')) {
+                        result.classList.remove("text-success");
+                    }
+                    result.classList.add("text-danger");
+                    result.innerText = 'The prompt was left empty.';
+                    return false;
+                }
+            }
+            printToPage(userName);
+        }
+        // If the clicked element doesn't have the right selector, bail
+        else {
+            return;
+        }
+        // Don't follow the link
+        event.preventDefault();
+        // Log the clicked element in the console
+        console.log(event.target);
+
+    }, false);
+</script>

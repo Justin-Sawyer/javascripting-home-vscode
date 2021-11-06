@@ -7,21 +7,56 @@
 {% block content %}
 <div class="container container-body mt-4 mb-4">
     <div class="row">
-        <div class="col-12 col-lg-9">
+        <div class="col-12 mb-3">
             <article class="row main-article">
                 {{ form.media }}
                 <form method="POST" action="{% url 'add_article' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form | crispy }}
+                    <div class="row">
+                        <div class="col-12">
+                            {{ form.category|as_crispy_field}}
+                        </div>
+                        <div class="col-12 col-md-6">
+                            {{ form.name|as_crispy_field}}
+                        </div>
+                        <div class="col-12 col-md-6">
+                            {{ form.summary|as_crispy_field}}
+                        </div>
+                        <div class="col-12 col-md-7">
+                            {{ form.description|as_crispy_field}}
+                        </div>
+                        <div class="col-12 col-md-5">
+                            {% include 'basics/includes/playground-in-tinymce-instructions.html' %} 
+                        </div>
+                        <div class="col-12 col-md-6">
+                            {{ form.script_title_1|as_crispy_field}}
+                        </div>
+                        <div class="col-12 col-md-6">
+                            {{ form.script_1|as_crispy_field}}
+                        </div>
+                        <div class="col-12 col-md-6">
+                            {{ form.gist_title_1|as_crispy_field}}
+                        </div>
+                        <div class="col-12 col-md-6">
+                            {{ form.gist_1|as_crispy_field}}
+                        </div>
+                        <div class="col-12 col-md-6">
+                            {{ form.codepen_title_1|as_crispy_field}}
+                        </div>
+                        <div class="col-12 col-md-6">
+                            {{ form.codepen_data_slug_hash_1|as_crispy_field}}
+                        </div>
+                    </div>
                     <div class="text-right float-end">
                         <a class="btn btn-danger" href="{% url 'basics' %}">Cancel</a>
                         <button class="btn btn-success" type="submit">Add Article</button>
                     </div>
             </article>
         </div>
-        <div class="col-12 col-lg-3">
+        <div class="col-12 add-edit-article-article-nav-cards">
             <section class="article-nav-cards">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-1">
+                <h3>More Articles</h3>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols--xxl-6">
                     {% include 'basics/includes/basic-nav.html' %}
                 </div>
             </section>
