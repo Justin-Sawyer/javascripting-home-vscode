@@ -46,18 +46,6 @@
                 {% endif %}
                 <p>Article posted: {{ article.date_added|date }}</p>
             </article>
-            <!-- <div class="next-previous-article-buttons">
-                {% if prev_article %}
-                <a role="button" class="btn btn-success float-start mb-3" href="/basics/{{prev_article}}">
-                    <i class="fas fa-chevron-circle-left"></i> Previous Article
-                </a>
-                {% endif %}
-                {% if next_article %}
-                <a role="button" class="btn btn-success float-end mb-3" href="/basics/{{next_article}}">
-                    Next Article <i class="fas fa-chevron-circle-right"></i>
-                </a>
-                {% endif %}
-            </div> -->
         </div>
         <div class="col-12 col-lg-3 article-nav-cards-div order-3 order-lg-2">
             <section>
@@ -95,5 +83,5 @@
     {% include 'basics/includes/tinymceAppearance.html' %}
     {% include 'basics/includes/titleDeferAsyncColor.html' %}
     {% include 'basics/includes/printToPage.html' %}
-    {% include 'basics/includes/gist.html' %}
+    {% include 'basics/includes/ifGist.html' %}
 {% endblock %}

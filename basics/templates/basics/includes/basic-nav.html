@@ -10,11 +10,11 @@
         </div>
         <div class="card-footer bg-success">
             {% if this_page %}
-            <a type="button" class="btn btn-info w-100 card-button" href="{% url 'basics' %}">
+            <a role="button" class="btn btn-info w-100 card-button" href="{% url 'basics' %}">
                 You are here
             </a>
             {% else %}
-            <a type="button" class="btn btn-success w-100 card-button" href="{% url 'basics' %}">
+            <a role="button" class="btn btn-success w-100 card-button" href="{% url 'basics' %}">
                 Reference
             </a>
             {% endif %}
@@ -46,11 +46,11 @@
             </div>
             <div class="card-footer bg-success">
                 {% if article.id != filteredArticle.id %}
-                <a type="button" class="btn btn-success w-100 card-button" href="{% url 'article_detail' article.id %}">
+                <a role="button" class="btn btn-success w-100 card-button" href="{% url 'article_detail' article.id %}">
                     {{ article.name }}
                 </a>
                 {% else %}
-                <a type="button" class="btn btn-info w-100 card-button" href="{% url 'article_detail' article.id %}">
+                <a role="button" class="btn btn-info w-100 card-button" href="{% url 'article_detail' article.id %}">
                     You are here
                 </a>
                 {% endif %}

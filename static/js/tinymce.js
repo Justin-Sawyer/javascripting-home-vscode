@@ -69,13 +69,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
             The following settings require more configuration than shown here.
             For information on configuring the mentions plugin, see:
             https://www.tiny.cloud/docs/plugins/premium/mentions/.
+            
+            mentions_selector: '.mymention',
+            mentions_fetch: mentions_fetch,
+            mentions_menu_hover: mentions_menu_hover,
+            mentions_menu_complete: mentions_menu_complete,
+            mentions_select: mentions_select,
+            mentions_item_type: 'profile'
             */
-            // mentions_selector: '.mymention',
-            // mentions_fetch: mentions_fetch,
-            // mentions_menu_hover: mentions_menu_hover,
-            // mentions_menu_complete: mentions_menu_complete,
-            // mentions_select: mentions_select,
-            // mentions_item_type: 'profile'
         });
     }
 })

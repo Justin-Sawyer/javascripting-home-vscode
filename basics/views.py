@@ -32,8 +32,8 @@ def article(request, article_id):
 
     articles = Article.objects.all()
     article = get_object_or_404(Article, pk=article_id)
-    data_a = Article.objects.values("date_added")
-    print(data_a)
+    # data_a = Article.objects.values("date_added")
+    # print(data_a)
     # Used to display "this" article button in different color
     filteredArticle = Article.objects.get(pk=article_id)
     # Next page / previous page buttons
