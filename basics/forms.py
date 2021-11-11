@@ -11,12 +11,23 @@ class ArticleForm(forms.ModelForm):
 
     category = forms.ModelMultipleChoiceField(
         queryset=Category.objects.all(),
-        widget=forms.CheckboxSelectMultiple
+        label='Categories',
+        widget=forms.CheckboxSelectMultiple,
     )
 
     class Meta():
         model = Article
         fields = '__all__'
+        # exclude = ('new_date_added'),
+
+        labels = {
+            'jsconsole_title': 'JSConsole Title',
+            'jsconsole_permalink': 'JSConsole Permalink',
+            'gist_title': 'Gist Title',
+            'gist': 'Script URL String',
+            'codepen_title': 'CodePen Title',
+            'codepen_data_slug_hash': 'CodePen Data Slug Hash',
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -26,12 +37,12 @@ class ArticleForm(forms.ModelForm):
             'name': 'Name',
             'summary': 'Summary',
             'description': 'Description',
-            'script_title_1': 'Script Title',
-            'script_1': 'Script URL',
-            'gist_title_1': 'Gist Title',
-            'gist_1': 'Script URL string',
-            'codepen_title_1': 'CodePen Title',
-            'codepen_data_slug_hash_1': 'CodePen Data Slug Hash',
+            'jsconsole_title': 'JSConsole Title',
+            'jsconsole_permalink': 'JSConsole Permalink',
+            'gist_title': 'Gist Title',
+            'gist': 'Script URL String',
+            'codepen_title': 'CodePen Title',
+            'codepen_data_slug_hash': 'CodePen Data Slug Hash',
         }
 
         for field in self.fields:
@@ -42,4 +53,4 @@ class ArticleForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
         self.fields['category'].choices = friendly_name
-        self.fields['description'].required = True
+        # self.fields['description'].required = True

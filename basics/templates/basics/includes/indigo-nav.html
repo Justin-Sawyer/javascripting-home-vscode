@@ -4,6 +4,10 @@
             <h5 class="card-title indigo">Reference</h5>
             <p class="card-text">Some text</p>
         </div>
+        <div class="card-pre-footer">
+            <br>
+            <sub class="small mb-0">Nov. 4, 2021</sub>
+        </div>
         <div class="card-footer bg-success">
             {% if this_page %}
             <a type="button" class="btn btn-info w-100 card-button" href="#">
@@ -37,7 +41,7 @@
                 </small>
                 {% endif %}
                 <br>
-                <sub class="small mb-0">{{ article.date_added }}</sub>
+                <sub class="small mb-0">{{ article.date_added|date }}</sub>
             
             </div>
             <div class="card-footer bg-success">

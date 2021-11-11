@@ -1,3 +1,16 @@
 from django.contrib import admin
 
-# Register your models here.
+
+# from .models import CreationDate
+
+
+# class CreationDateAdmin(admin.ModelAdmin):
+#     list_display = (
+#         'this_date_created',
+#     )
+
+#     ordering = ('pk',)
+
+
+# # Register your models here.
+# admin.site.register(CreationDate, CreationDateAdmin)

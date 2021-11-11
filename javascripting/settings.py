@@ -170,8 +170,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 TINYMCE_JS_URL = os.path.join(STATIC_URL, "js/tinymce.js")
 TINYMCE_DEFAULT_CONFIG = {
-    "height": "320px",
-    "width": "960px",
+    "height": "650px",
+    "width": "100%",
     "menubar": "file edit view insert format tools table help",
     "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
     "fullscreen insertdatetime media table paste code help wordcount spellchecker",

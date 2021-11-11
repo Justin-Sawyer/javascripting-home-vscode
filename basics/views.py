@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
+from datetime import datetime
 
 from .models import Article, Category
 from .forms import ArticleForm
@@ -9,7 +12,7 @@ from .forms import ArticleForm
 # This view is not really needed, but is being kept for if users type
 # /basics into the url bar
 def all_basics(request):
-    """ A view to return the basic-cat page """
+    """ A view to return the basics all articles page """
     articles = Article.objects.all()
 
     context = {
@@ -29,9 +32,11 @@ def article(request, article_id):
 
     articles = Article.objects.all()
     article = get_object_or_404(Article, pk=article_id)
-
+    data_a = Article.objects.values("date_added")
+    print(data_a)
+    # Used to display "this" article button in different color
     filteredArticle = Article.objects.get(pk=article_id)
-    print(filteredArticle.date_added)
+    # Next page / previous page buttons
     if filteredArticle != Article.objects.last():
         next_article = Article.get_next_by_date_added(filteredArticle)
         next_article = next_article.id
@@ -56,8 +61,7 @@ def article(request, article_id):
 def add_article(request):
     """ Add an article """
     articles = Article.objects.all()
-    # article = get_object_or_404(Article, pk=article_id)
-    # filteredArticle = Article.objects.get(pk=article_id)
+
     if request.method == "POST":
         form = ArticleForm(request.POST, request.FILES)
         if form.is_valid():
@@ -71,12 +75,10 @@ def add_article(request):
     template = 'basics/add_article.html'
     context = {
         'form': form,
-        # 'article': article,
         'articles': articles,
         'title': 'JavaScripting : The Basics.',
         'section': 'Basics',
         'pagename': 'Add an Article',
-        # 'filteredArticle': filteredArticle,
     }
 
     return render(request, template, context)

@@ -1,15 +1,26 @@
 <script>
     let leftHeight = $('.main-article').height();
     let rightHeight = $('.article-nav-cards').height();
+    let gistScriptHeight;
+    let leftHeightPx;
+    let totalLeftHeight;
+    let gistScriptElement = document.getElementById("gist-script") || false
+        if (gistScriptElement) {
+            gistScriptHeight = $("#gist-script").height();
+            totalLeftHeight = leftHeight + gistScriptHeight;
+            leftHeightPx = `${leftHeight + gistScriptHeight}px`;
+            console.log(leftHeightPx)
+        } else {
+            leftHeightPx = `${leftHeight}px`;
+        }
 
-    let leftHeightPx = `${leftHeight}px`;
     $('.article-nav-cards').css('max-height', leftHeightPx).css('overflow', 'scroll').css('overflow-x', 'hidden').css('padding', '0 16px');
     $('#scroll-notice').css('padding', '16px 0 0 16px');
 
     let clientWidth = document.documentElement.clientWidth;
     
     // Hide notice when not needed
-    if (leftHeight > rightHeight)  {
+    if ((leftHeight > rightHeight) || (totalLeftHeight > rightHeight)) {
         $('#scroll-notice').css('display', 'none');
         $('.article-nav-cards').css('overflow', 'hidden');
     }

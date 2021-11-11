@@ -77,11 +77,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             // mentions_select: mentions_select,
             // mentions_item_type: 'profile'
         });
-
-
-
     }
-
-
 })
+
 

@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from .models import Article, Category
+# from home.models import CreationDate
 
 class ArticleAdmin(admin.ModelAdmin):
     list_display = (
@@ -8,8 +9,9 @@ class ArticleAdmin(admin.ModelAdmin):
         'summary',
         'date_added',
     )
+    
 
-    ordering = ('name',)
+    ordering = ('pk',)
 
     class Media(admin.ModelAdmin):
         css = {
