@@ -33,6 +33,10 @@ body {
     font-size: 3em;
 }
 
+.typing-main {
+    margin-bottom: 0.5rem;
+}
+
 @media screen and (max-width: 50em) {
     .wrapper-top,
     .wrapper-bottom {
@@ -46,7 +50,7 @@ body {
 
 @media screen and (max-width: 30em) {
     .wrapper-top,
-    wrapper-bottom {
+    .wrapper-bottom {
         height: 10vh;
     }
     .typing-main,
@@ -332,6 +336,36 @@ body {
 
 /* -------------------------------------------------------------- Cards (not in main navigation */
 
+/*.more-articles-title {
+    margin-bottom: 12px;
+}
+
+.add-edit-article-article-nav-cards {
+    padding: 16px 16px;
+}
+
+@media screen and (max-width: 991px) {
+    #scroll-notice {
+        display: none;
+    }
+    
+    .article-nav-cards {
+        margin: 0 16px;
+        overflow: hidden;
+    }
+    
+    .article-nav-cards-div {
+        padding: 0 16px;
+    }
+
+    .main-article-div {
+        padding: 0 16px;
+    }
+
+    .add-edit-article-article-nav-cards-div {
+        padding: 16px;
+    }
+}*/
 @media screen and (max-width: 991px) {
     #scroll-notice {
         display: none;

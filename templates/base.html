@@ -52,15 +52,18 @@
         <div class="row typewriter-row">
             <div class="wrapper-top">
                 <input type="hidden" id="typing-main-name" value="{% if title %}{{ title }}{% else %}JavaScripting{% endif %}">
-                <h1 class="typing-main" id="typing-main">
+                <h1 class="typing-main" style="display:none;">{{ title }}</h1>
+                <p class="typing-main" id="typing-main">
                     <!-- "Site : Section." goes here -->
-                </h1>
+                </p>
             </div>
             <div class="wrapper-bottom">
                 <input type="hidden" id="typing-sub-name" value="{{ pagename }}">
-                <h2 class="typing-sub" id="typing-sub">
+                <h2 class="typing-sub" style="display:none;">{{ pagename }}</h2>
+                <p class="typing-sub" id="typing-sub">
                     <!-- Page. -->
-                </h2>
+                </p>
+                
             </div>
         </div>
         <!-- Nav Bar Row -->
@@ -143,7 +146,7 @@
 
     {% block postloadjs %}
         {% include 'includes/js/typewriter_js.html' %}
-        {% include 'includes/js/scrolling_articles_js.html' %}
+        
         {% include 'includes/js/toasts_js.html' %}
         {% include 'includes/js/navigation_js.html' %}
         {% include 'includes/js/popovers_js.html' %}

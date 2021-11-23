@@ -5,58 +5,78 @@
 {% endblock %}
 
 {% block content %}
-<div class="container container-body mt-4 mb-4 flex">
+<div class="container container-body mt-4 mb-4">
     <div class="row">
-        <div class="col-12 col-lg-9 main-article-div order-1">
+        <div class="col-12 col-lg-9 mt-3">
+            <h3 class="main-title">{{ article.name }}</h3>
+        </div>
+        <div class="d-none d-lg-block col-lg-3 mt-3">
+            <h3 class="ps-3 more-articles">More Articles</h3>
+        </div>
+        <div class="col-12 col-lg-9 main-article-div">
             <article class="row main-article">
-                <h3 class="main-title">{{ article.name }}</h3>
-                {% if request.user.is_superuser %}
-                <small>
-                    <a class="small text-info" href="{% url 'edit_article' article.id %}">Edit</a> |
-                    <a class="small text-danger" href="{% url 'delete_article' article.id %}">Delete</a>
-                </small>
-                {% endif %}
-                <p class="summary"><em>{{ article.summary }}</em></p>
-                <div id="tinymce-editor">{{ article.description|safe }}</div>
-                {% if article.jsconsole_title %}
-                    <p class="jsconsole_title"><em>{{ article.jsconsole_title }}</em></p>
-                {% endif %}
-                {% if article.jsconsole_permalink  %}
-                    <iframe class="jsconsole_permalink mb-3" src="{{ article.jsconsole_permalink }}" id="yourjsconsole" title="yourjsconsole"></iframe>
-                {% endif %}
-                {% if article.gist_title %}
-                    <p class="gist-title"><em>{{ article.gist_title }}</em></p>
-                {% endif %}
-                {% if article.gist %}
-                <div id="gist-script" style="display: none;">
-                    <script src="{{article.gist }}.js"></script>
+                <!-- <h3 class="main-title">{{ article.name }}</h3> -->
+                <div class="main-article-body">
+                    {% if request.user.is_superuser %}
+                    <small>
+                        <a class="small text-info" href="{% url 'edit_article' article.id %}">Edit</a> |
+                        <a class="small text-danger" href="{% url 'delete_article' article.id %}">Delete</a>
+                    </small>
+                    {% endif %}
+                    <p class="summary"><em>{{ article.summary }}</em></p>
+                    <div id="tinymce-editor">{{ article.description|safe }}</div>
+                    {% if article.jsconsole_title %}
+                        <p class="jsconsole_title"><em>{{ article.jsconsole_title }}</em></p>
+                    {% endif %}
+                    {% if article.jsconsole_permalink  %}
+                        <iframe class="jsconsole_permalink mb-3" src="{{ article.jsconsole_permalink }}" id="yourjsconsole" title="yourjsconsole"></iframe>
+                    {% endif %}
+                    {% if article.gist_title %}
+                        <p class="gist-title"><em>{{ article.gist_title }}</em></p>
+                    {% endif %}
+                    {% if article.gist %}
+                    <div id="gist-script" style="display: none;">
+                        <script src="{{article.gist }}.js"></script>
+                    </div>
+                    {% endif %}
+                    {% if article.codepen_title %}
+                        <p class="codepen-title"><em>{{ article.codepen_title }}</em></p>
+                    {% endif %}
+                    {% if article.codepen_data_slug_hash_1 %}
+                        <iframe height="300" style="width: 100%;" scrolling="no" title="Typewriter effect"
+                            src="https://codepen.io/JustinSawyer/embed/{{ article.codepen_data_slug_hash }}?default-tab=html%2Cresult&editable=true" frameborder="no"
+                            loading="lazy" allowtransparency="true" allowfullscreen="true">
+                            See the Pen <a href="https://codepen.io/JustinSawyer/pen/{{ article.codepen_data_slug_hash }}">
+                                Typewriter effect</a> by Justin Sawyer (<a href="https://codepen.io/JustinSawyer">@JustinSawyer</a>)
+                            on <a href="https://codepen.io">CodePen</a>.
+                        </iframe>
+                    {% endif %}
+                    <p>Article posted: {{ article.date_added|date }}</p>
+                    <div class="next-previous-article-buttons">
+                        {% if prev_article %}
+                        <a role="button" class="btn btn-success float-start mb-3" href="/basics/{{prev_article}}">
+                            <i class="fas fa-chevron-circle-left"></i> Previous Article
+                        </a>
+                        {% endif %}
+                        {% if next_article %}
+                        <a role="button" class="btn btn-success float-end mb-3" href="/basics/{{next_article}}">
+                            Next Article <i class="fas fa-chevron-circle-right"></i>
+                        </a>
+                        {% endif %}
+                    </div>
                 </div>
-                {% endif %}
-                {% if article.codepen_title %}
-                    <p class="codepen-title"><em>{{ article.codepen_title }}</em></p>
-                {% endif %}
-                {% if article.codepen_data_slug_hash_1 %}
-                    <iframe height="300" style="width: 100%;" scrolling="no" title="Typewriter effect"
-                        src="https://codepen.io/JustinSawyer/embed/{{ article.codepen_data_slug_hash }}?default-tab=html%2Cresult&editable=true" frameborder="no"
-                        loading="lazy" allowtransparency="true" allowfullscreen="true">
-                        See the Pen <a href="https://codepen.io/JustinSawyer/pen/{{ article.codepen_data_slug_hash }}">
-                            Typewriter effect</a> by Justin Sawyer (<a href="https://codepen.io/JustinSawyer">@JustinSawyer</a>)
-                        on <a href="https://codepen.io">CodePen</a>.
-                    </iframe>
-                {% endif %}
-                <p>Article posted: {{ article.date_added|date }}</p>
             </article>
         </div>
-        <div class="col-12 col-lg-3 article-nav-cards-div order-3 order-lg-2">
-            <section>
-                <h3 class="ps-3 more-articles">More Articles</h3>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-1 article-nav-cards">
+        <div class="col-12 col-lg-3 article-nav-cards-div">
+            <section class="article-nav-cards">
+                <h3 class="more-articles d-lg-none">More Articles</h3>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-1 the-cards">
                     {% include 'basics/includes/basic-nav.html' %}
                 </div>
             </section>
             <p id="scroll-notice">Scroll for more articles</p>
         </div>
-        <div class="col-12 order-2 order-lg-3">
+        <!-- <div class="col-12 order-2 order-lg-3 next-previous-article-buttons-div">
             <div class="row">
                 <div class="col-12 col-lg-9">
                     <div class="next-previous-article-buttons">
@@ -73,7 +93,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 {% endblock%}
@@ -84,4 +104,5 @@
     {% include 'basics/includes/titleDeferAsyncColor.html' %}
     {% include 'basics/includes/printToPage.html' %}
     {% include 'basics/includes/ifGist.html' %}
+    {% include 'includes/js/scrolling_articles_js.html' %}
 {% endblock %}

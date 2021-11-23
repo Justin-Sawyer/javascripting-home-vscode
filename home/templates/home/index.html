@@ -24,7 +24,7 @@
                 <p>With each "article", I'll add a code snippet, taken from my GitHub repository.</p>
                 <p>And there will also be a playground or a console playground where you can play along.</p>
                 <h4 id="codepen-playground">This is a playground showing the page load banner effect.</h4>
-                <p>It's editable: change the value of each <code>&ltinput&gt</code> element and press the Rerun button.</p>
+                <p>It's editable: change the value of each <code>&lt;input&gt;</code> element and press the Rerun button.</p>
 
                 {% include 'includes/codepen.html' %}
 
@@ -48,3 +48,8 @@
 
 </div>
 {% endblock%}
+
+{% block postloadjs %}
+{{ block.super }}
+    {% include 'includes/js/scrolling_articles_js.html' %}
+{% endblock %}
