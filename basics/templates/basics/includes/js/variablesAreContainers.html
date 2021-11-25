@@ -1,0 +1,27 @@
+<script>
+    $(document).ready(function () {
+        let showHidden = document.getElementById('hidden') || false;
+        if (showHidden) {
+            showHidden.style.display = 'none';
+            let getNumberSubmitButton = document.getElementsByName('get-number-submit')[0];
+            getNumberSubmitButton.addEventListener('click', getNumber);
+
+            function getNumber() {
+                let submitValue = document.getElementById("get-number").value;
+                document.getElementById('entered-number').innerText = "";
+                document.getElementById("get-number").value = "";
+                if (submitValue != "") {
+                    showHidden.style.display = 'block';
+                    let showNumberButton = document.getElementById('show-number-button');
+                    showNumberButton.addEventListener('click', showNumber);
+
+                    function showNumber() {
+                        document.getElementById('entered-number').innerText = submitValue;
+                    }
+                } else {
+                    showHidden.style.display = 'none';
+                }
+            }
+        }
+    });
+</script>

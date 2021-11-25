@@ -53,30 +53,13 @@
                     </div>
             </article>
         </div>
-        <!-- <div class="col-12 add-edit-article-article-nav-cards">
-            <section class="article-nav-cards">
-                <h3>More Articles</h3>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols--xxl-6">
-                    {% include 'basics/includes/basic-nav.html' %}
-                </div>
-            </section>
-            <p id="scroll-notice">Scroll for more articles</p>
-        </div> -->
-        <!--<div class="col-12 col-lg-3 article-nav-cards-div">
-            <section class="article-nav-cards">
-                <h3 class="more-articles d-lg-none">More Articles</h3>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-1 the-cards">
-                    {% include 'basics/includes/basic-nav.html' %}
-                </div>
-            </section>
-            <p id="scroll-notice">Scroll for more articles</p>
-        </div>-->
     </div>
 </div>
 {% endblock%}
 
 {% block postloadjs %}
     {{ block.super }}
+    {% include 'basics/includes/js/tinymceInstructions.html' %}
     <script>
         // Change color of checkbox. Works in Chrome and Safari desktop
         $('input[type="checkbox"]').css('filter', 'hue-rotate(300deg)');

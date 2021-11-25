@@ -1,0 +1,9 @@
+<script>
+    let title = document.getElementsByClassName('main-title')[0];
+    let coloredTitle = title.innerHTML.replace(/defer/g, '<code>defer</code>')
+                                      .replace(/async/g, '<code>async</code>')
+                                      .replace(/var/g, '<code>var</code>')
+                                      .replace(/let/g, '<code>let</code>')
+                                      .replace(/const/g, '<code>const</code>')
+    title.innerHTML = coloredTitle
+</script>

@@ -26,7 +26,7 @@
         <li>
             <p class="mb-1" id="js-console-instructions-iframe-link"><small>Get the <code>&ltiframe&gt</code> by clicking
                     the button:</small></p>
-            <button role="button" class="btn btn-success mb-1" data-bs-toggle="popover" title="Copy this code"
+            <button role="button" class="btn btn-success mb-1" id="js-console-iframe-code-button" data-bs-toggle="popover" title="Copy this code"
                 data-bs-content='<iframe id="yourjsconsole" class="mb-3" title="yourjsconsole" src=""></iframe>'>Get
                 Code</button>
         </li>
@@ -52,7 +52,7 @@
         </li>
         <li>
             <p>Copy the gist Share link and paste it into Gist 1 field, below.</p>
-            <button role="button" class="btn btn-success mb-1" data-bs-toggle="popover" title="Example Share Link" data-bs-content='https://gist.github.com/Account-Name/1234hygghj6678'>Example Share Link</button>
+            <button role="button" class="btn btn-success mb-1" id="gist-code-button" data-bs-toggle="popover" title="Example Share Link" data-bs-content='https://gist.github.com/Account-Name/1234hygghj6678'>Example Share Link</button>
         </li>
     </ol>
 
@@ -68,7 +68,7 @@
         <li>
             <p class="mb-1" id="examples-instructions-1"><small>Get the code to create simple examples by clicking
                     the button:</small></p>
-            <button role="button" class="btn btn-success mb-1" data-bs-toggle="popover" title="Copy this code"
+            <button role="button" class="btn btn-success mb-1" id="examples-code-button" data-bs-toggle="popover" title="Copy this code"
                 data-bs-content='<p><button id="example" class="btn btn-primary">Example</button></p>
                 <p id="example-result"></p>'>Get Code</button>
         </li>
@@ -78,11 +78,3 @@
         </li>
     </ol>
 </div>
-
-<script>
-    $('.instructions-button').css('margin-bottom', '16px');
-    $('.instructions-button').on('click', function(event) {
-        event.preventDefault();
-        $('.instructions').toggleClass('d-none');
-    })
-</script>

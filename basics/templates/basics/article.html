@@ -15,7 +15,6 @@
         </div>
         <div class="col-12 col-lg-9 main-article-div">
             <article class="row main-article">
-                <!-- <h3 class="main-title">{{ article.name }}</h3> -->
                 <div class="main-article-body">
                     {% if request.user.is_superuser %}
                     <small>
@@ -76,33 +75,16 @@
             </section>
             <p id="scroll-notice">Scroll for more articles</p>
         </div>
-        <!-- <div class="col-12 order-2 order-lg-3 next-previous-article-buttons-div">
-            <div class="row">
-                <div class="col-12 col-lg-9">
-                    <div class="next-previous-article-buttons">
-                        {% if prev_article %}
-                        <a role="button" class="btn btn-success float-start mb-3" href="/basics/{{prev_article}}">
-                            <i class="fas fa-chevron-circle-left"></i> Previous Article
-                        </a>
-                        {% endif %}
-                        {% if next_article %}
-                        <a role="button" class="btn btn-success float-end mb-3" href="/basics/{{next_article}}">
-                            Next Article <i class="fas fa-chevron-circle-right"></i>
-                        </a>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
 </div>
 {% endblock%}
 
 {% block postloadjs %}
     {{ block.super }}
-    {% include 'basics/includes/tinymceAppearance.html' %}
-    {% include 'basics/includes/titleDeferAsyncColor.html' %}
-    {% include 'basics/includes/printToPage.html' %}
-    {% include 'basics/includes/ifGist.html' %}
+    {% include 'basics/includes/js/tinymceAppearance.html' %}
+    {% include 'basics/includes/js/titleColor.html' %}
+    {% include 'basics/includes/js/printToPage.html' %}
+    {% include 'basics/includes/js/ifGist.html' %}
+    {% include 'basics/includes/js/variablesAreContainers.html' %}
     {% include 'includes/js/scrolling_articles_js.html' %}
 {% endblock %}

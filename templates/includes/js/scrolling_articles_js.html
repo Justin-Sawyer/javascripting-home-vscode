@@ -2,14 +2,10 @@
     $(document).ready(function() {
         // Timeout function "guarantees" correct height for cards
         setTimeout(function () {
-            // let mainArticleBody = $('.main-article-body').height();
-            // console.log(mainArticleBody)
             let leftHeight = $('.main-article').height();
-            //console.log('leftHeight', leftHeight)
+            
             let rightHeight = $('section.article-nav-cards').height();
-            //console.log('righttHeight', rightHeight)
-            // let rightCardsHeight = $('.the-cards').height();
-            // console.log(rightCardsHeight)
+            
             let gistScriptHeight;
             let leftHeightPx;
             let totalLeftHeight;
@@ -18,50 +14,29 @@
                 gistScriptHeight = $("#gist-script").height();
                 totalLeftHeight = leftHeight + gistScriptHeight;
                 leftHeightPx = `${leftHeight + gistScriptHeight - 54}px`;
-                //console.log('gistScriptHeight', gistScriptHeight)
-                //console.log('leftHeight with gist', leftHeightPx)
             } else {
                 leftHeightPx = `${leftHeight - 54}px`;
-                //console.log('leftHeight without gist', leftHeightPx)
             }
 
-            $('.article-nav-cards').css('max-height', leftHeightPx).css('overflow', 'scroll').css('overflow-x', 'hidden').css('padding', '0 16px');
-            $('#scroll-notice').css('padding', '16px 0 0 16px');
+            let clientWidth = document.documentElement.clientWidth;
+            console.log(clientWidth);
+            $('.article-nav-cards').css('padding', '0 16px');
+            if (clientWidth > 991) {
+                $('.article-nav-cards').css('max-height', leftHeightPx).css('overflow', 'scroll').css('overflow-x', 'hidden')//.css('padding', '0 16px');
+                $('#scroll-notice').css('padding', '16px 0 0 16px');
 
-            /*const hasScrollbar = document.body.scrollHeight > window.innerHeight
-            if (hasScrollbar) {
-                $('#scroll-notice').css('display', 'block');
-            } else {
-                $('#scroll-notice').css('display', 'none');
-            }*/
-            const scrollbarVisible = (element) => {
-                return element.scrollHeight > element.clientHeight;
+                const scrollbarVisible = (element) => {
+                    return element.scrollHeight > element.clientHeight;
+                }
+
+                const articleNavCards = document.querySelector('.article-nav-cards');
+                if (scrollbarVisible(articleNavCards)) {
+                    // $('#scroll-notice').css('display', 'block');
+                    $('#scroll-notice').addClass('d-lg-block');
+                } else {
+                    $('#scroll-notice').css('display', 'none');
+                }
             }
-
-            // const p = document.querySelector('p')
-            const articleNavCards = document.querySelector('.article-nav-cards');
-            if (scrollbarVisible(articleNavCards)) {
-                $('#scroll-notice').css('display', 'block');
-            } else {
-                $('#scroll-notice').css('display', 'none');
-            }
-
-            /*for (let i = 1; i <= 100; i++) {
-                const p = document.createElement('p')
-                p.textContent = i
-                div.appendChild(p)
-            }*/
-
-            //console.log(scrollbarVisible(p))
-            // console.log(scrollbarVisible(hasScrollbar))
-
-            // let clientWidth = document.documentElement.clientWidth;
-
-            // Hide notice when not needed
-            //if ((leftHeight > rightHeight) || (totalLeftHeight > rightHeight)) {
-            //    $('#scroll-notice').css('display', 'none');
-            //    $('.article-nav-cards').css('overflow', 'hidden');
-            //}
         }, 50);
     })
 </script>
